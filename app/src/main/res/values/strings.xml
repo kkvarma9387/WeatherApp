@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Weather App</string>
+
+    <!-- Search Section -->
+    <string name="weather_search">Weather Search</string>
+    <string name="enter_us_city">Enter US City</string>
+    <string name="search_weather">Search Weather</string>
+
+    <!-- Error Messages -->
+    <string name="error_empty_city">Please enter a city name</string>
+    <string name="error_min_length">City name must be at least %d characters</string>
+    <string name="error_invalid_chars">City name can only contain letters and spaces</string>
+
+    <!-- Weather Display -->
+    <string name="temperature_celsius">%.1f°C</string>
+    <string name="weather_icon">Weather Icon</string>
+
+    <string name="error_loading_weather">Failed to load weather data. Please try again.</string>
+    <string name="error_location_permission_denied">Location permission is required to fetch weather for your location.</string>
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="error_city_not_found">City not found. Please check the spelling.</string>
+
+
+    <string name="error_unauthorized">Invalid API key. Please contact support.</string>
+    <string name="error_rate_limit">Too many requests. Please try again later.</string>
+</resources>
