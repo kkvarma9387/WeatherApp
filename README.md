@@ -111,4 +111,13 @@ The base URL is in `build.gradle.kts` and can be changed in `gradle.properties` 
 
 Built with Kotlin and Jetpack Compose
 
+## 📸 Sample POC Screenshots
+
+### Home 
+![Home](screenshots/Home.png)
+
+### Error Screen
+![Error](screenshots/Error.png)
+
+
 >>>>>>> 2ef70ec6e016cc6dc38a24ac3d0bd1e8346518e0
