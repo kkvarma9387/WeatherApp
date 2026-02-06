@@ -38,16 +38,15 @@ jobs:
       - name: Run Ktlint
         run: ./gradlew ktlint --no-daemon
 
-      - name: Create local.properties for CI
-        run: |
-          echo "BASE_URL=${{ secrets.BASE_URL }}" >> local.properties
-          echo "WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }}" >> local.properties
-
       - name: Build Debug APK
-        run: ./gradlew assembleDebug
+        env:
+            BASE_URL: ${{ secrets.BASE_URL }}
+            WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+        run: ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
+            name: app-debug
+            path: app/build/outputs/apk/debug/app-debug.apk
+

@@ -54,6 +54,8 @@ uiTestJunit4Version = "1.9.5"
 androidxUiTestJunit4 = "1.10.2"
 runtime = "1.10.2"
 playServicesLocation = "21.3.0"
+uiTooling = "1.10.2"
+uiToolingPreview = "1.10.2"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -65,6 +67,8 @@ compose-compiler     = { id = "org.jetbrains.kotlin.plugin.compose", version.ref
 
 [libraries]
 # Core Kotlin
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "uiTooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 
 # Coroutines
