@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.hilt)
     alias(libs.plugins.compose.compiler) // ✅ NEW required
     alias(libs.plugins.ksp)
+    alias(libs.plugins.googleServices)
     /*alias(libs.plugins.ktlint)
     alias(libs.plugins.detekt) // enable when you want detekt*/
 }
@@ -99,6 +100,10 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     ksp(libs.room.compiler)
+
+
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.analytics)
 
 // Unit testing
     testImplementation(libs.junit)

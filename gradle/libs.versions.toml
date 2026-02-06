@@ -59,6 +59,9 @@ uiToolingPreview = "1.10.2"
 
 ktlint = "12.1.1"
 detekt = "1.23.6"
+googleServices = "4.4.2"
+firebaseBom = "34.9.0"
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -67,6 +70,7 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 hilt                 = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp                  = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 compose-compiler     = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+googleServices = { id = "com.google.gms.google-services", version.ref = "googleServices" }
 
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
@@ -138,6 +142,10 @@ room-ktx      = { module = "androidx.room:room-ktx", version.ref = "roomKtx" }
 # Compose UI Tests
 ui-test-junit4  = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "uiTestJunit4" }
 ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "uiTestManifest" }
+
+
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 
 # Logging
 slf4j-slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4jSimpleVersion" }
