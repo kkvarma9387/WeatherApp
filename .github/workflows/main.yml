@@ -34,17 +34,17 @@ jobs:
 
       - name: Build Debug APK
         env:
-            BASE_URL: ${{ secrets.BASE_URL }}
-            WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
         run: ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-            name: app-debug
-            path: app/build/outputs/apk/debug/app-debug.apk
+          name: app-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
 
-    # ✅ Add Firebase distribution AFTER build (and after upload if you keep it)
+      # ✅ Firebase distribution AFTER build (and after upload)
       - name: Install Firebase CLI
         run: npm install -g firebase-tools
 
@@ -54,6 +54,6 @@ jobs:
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
         run: |
           firebase appdistribution:distribute app/build/outputs/apk/debug/app-debug.apk \
-          --app "$FIREBASE_APP_ID" \
-          --groups "qa" \
-          --release-notes "CI build from GitHub Actions"
+            --app "$FIREBASE_APP_ID" \
+            --groups "qa" \
+            --release-notes "CI build from GitHub Actions"
