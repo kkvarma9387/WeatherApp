@@ -128,4 +128,8 @@ dependencies {
     androidTestImplementation(libs.google.truth)
 
     testImplementation(libs.mockk) // or latest available
+
+
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }
