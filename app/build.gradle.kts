@@ -22,17 +22,23 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        val properties = Properties()
+        val localPropertiesFile = project.rootProject.file("local.properties")
+
+        if (localPropertiesFile.exists()) {
+            properties.load(localPropertiesFile.inputStream())
+        }
         buildConfigField(
             "String",
             "BASE_URL",
             "\"${project.findProperty("BASE_URL") ?: "https://api.openweathermap.org/data/2.5/"}\""
         )
 
-        val properties = Properties()
-        properties.load(project.rootProject.file("local.properties").inputStream())
-        buildConfigField("String", "WEATHER_API_KEY", "\"${properties.getProperty("WEATHER_API_KEY")}\"")
-
-
+        buildConfigField(
+            "String",
+            "WEATHER_API_KEY",
+            "\"${properties.getProperty("WEATHER_API_KEY") ?: ""}\""
+        )
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
