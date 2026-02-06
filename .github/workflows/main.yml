@@ -29,12 +29,11 @@ jobs:
       - name: Run Unit Tests
         run: ./gradlew test --no-daemon
 
-      - name: Run UI Tests
+      - name: Run Android Lint
         run: ./gradlew lint --no-daemon
 
-
       - name: Run Ktlint
-        run: ./gradlew ktlint --no-daemon
+        run: ./gradlew ktlintCheck  --no-daemon
 
       - name: Build Debug APK
         env:

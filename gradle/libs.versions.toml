@@ -57,6 +57,9 @@ playServicesLocation = "21.3.0"
 uiTooling = "1.10.2"
 uiToolingPreview = "1.10.2"
 
+ktlint = "12.1.1"
+detekt = "1.23.6"
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android       = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -64,6 +67,9 @@ kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", versi
 hilt                 = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 ksp                  = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 compose-compiler     = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 [libraries]
 # Core Kotlin
