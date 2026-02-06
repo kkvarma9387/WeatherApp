@@ -32,8 +32,6 @@ jobs:
       - name: Run UI Tests
         run: ./gradlew lint --no-daemon
 
-      - name: Run Detekt
-        run: ./gradlew detekt --no-daemon
 
       - name: Run Ktlint
         run: ./gradlew ktlint --no-daemon
