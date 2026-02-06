@@ -36,6 +36,7 @@ jobs:
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
           WEATHER_API_KEY: ${{ secrets.WEATHER_API_KEY }}
+          BUILD_NUMBER: ${{ github.run_number }}
         run: ./gradlew assembleDebug --no-daemon
 
       - name: Upload APK

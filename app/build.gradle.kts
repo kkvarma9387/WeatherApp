@@ -19,11 +19,18 @@ android {
     }
 
     defaultConfig {
+        val buildNumber = System.getenv("BUILD_NUMBER")?.toIntOrNull()
+            ?: System.getenv("GITHUB_RUN_NUMBER")?.toIntOrNull()
+            ?: 1
+
         applicationId = "com.example.weatherapp"
         minSdk = 24
         targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
+
+        // ✅ CI-driven versioning (recommended)
+        versionCode = buildNumber
+        versionName = "1.0.$buildNumber"
+
 
         val properties = Properties()
         val localPropertiesFile = project.rootProject.file("local.properties")
