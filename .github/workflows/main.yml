@@ -27,14 +27,14 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Unit Tests
-        run: ./gradlew testDebugUnitTest --no-daemon
+        run: ./gradlew test --no-daemon
 
       - name: Upload Unit Test Report
-        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: unit-test-report
-          path: app/build/reports/tests/
+          path: app/build/reports/tests/testDebugUnitTest/
+
       - name: Publish JUnit Test Results
         if: always()
         uses: mikepenz/action-junit-report@v4
@@ -43,6 +43,11 @@ jobs:
 
       - name: Run Android Lint
         run: ./gradlew lint --no-daemon
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Build Debug APK
         env:

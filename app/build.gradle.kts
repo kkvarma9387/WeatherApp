@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler) // ✅ NEW required
     alias(libs.plugins.ksp)
     alias(libs.plugins.googleServices)
+    alias(libs.plugins.sonarqube)
     /*alias(libs.plugins.ktlint)
     alias(libs.plugins.detekt) // enable when you want detekt*/
 }
