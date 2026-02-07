@@ -13,6 +13,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: Cache Gradle & Android SDK
+        uses: actions/cache@v4
+        with:
+            path: |
+              ~/.gradle/caches
+              ~/.gradle/wrapper
+              /usr/local/lib/android/sdk
+            key: ${{ runner.os }}-android-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+            restore-keys: |
+              ${{ runner.os }}-android-
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -30,6 +40,7 @@ jobs:
         run: ./gradlew test --no-daemon
 
       - name: Upload Unit Test Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: unit-test-report
@@ -48,6 +59,11 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+            args: >
+              -Dsonar.projectKey=kkvarma9387_WeatherApp
+              -Dsonar.organization=kkvarma9387
+              -Dsonar.host.url=https://sonarcloud.io
 
       - name: Build Debug APK
         env:
