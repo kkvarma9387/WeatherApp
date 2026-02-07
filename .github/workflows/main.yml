@@ -27,7 +27,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Unit Tests
-        run: ./gradlew test --no-daemon
+        run: ./gradlew testDebugUnitTest --no-daemon
 
       - name: Upload Unit Test Report
         if: always()
@@ -35,6 +35,11 @@ jobs:
         with:
           name: unit-test-report
           path: app/build/reports/tests/
+      - name: Publish JUnit Test Results
+        if: always()
+        uses: mikepenz/action-junit-report@v4
+        with:
+          report_paths: '**/build/test-results/testDebugUnitTest/*.xml'
 
       - name: Run Android Lint
         run: ./gradlew lint --no-daemon
@@ -66,7 +71,6 @@ jobs:
 
       - name: Distribute APK to Firebase App Distribution
         env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
         run: |
           firebase appdistribution:distribute app/build/outputs/apk/debug/app-debug.apk \
