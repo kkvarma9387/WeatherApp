@@ -1,4 +1,5 @@
 package com.example.weatherapp.domain.usecase
+import android.util.Log
 import com.example.weatherapp.domain.model.Weather
 import com.example.weatherapp.domain.repository.WeatherRepository
 import javax.inject.Inject
@@ -12,6 +13,7 @@ class GetWeatherByCityUseCase @Inject constructor(
         return try {
             // Delegate data fetching to repository
             val weather = repository.getWeatherByCity(city)
+            Log.e("GetWeatherByCityUseCase", "invoke: $weather")
             Result.success(weather)
         } catch (e: Exception) {
             // Defensive handling to avoid crashing the UI on API/network errors
