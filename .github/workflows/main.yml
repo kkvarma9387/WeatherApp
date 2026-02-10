@@ -60,6 +60,7 @@ jobs:
       - name: Run Android Lint
         run: ./gradlew lint --no-daemon
 
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
         env:
